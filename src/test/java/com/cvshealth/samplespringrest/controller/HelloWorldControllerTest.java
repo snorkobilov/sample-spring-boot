@@ -1,4 +1,4 @@
-package com.cvshealth.samplesringrest.controller;
+package com.cvshealth.samplespringrest.controller;
 
 import org.junit.jupiter.api.Test;
 
