@@ -1,5 +1,7 @@
 package com.cvshealth.samplespringrest.integration;
 
+import com.cvshealth.samplespringrest.repository.HelloWorldEntity;
+import com.cvshealth.samplespringrest.repository.HelloWorldRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -22,7 +24,7 @@ public class HelloWorldIntegrationTest {
 
 
     @Container
-    public static OracleContainer oracleContainer = new OracleContainer("gvenzl/oracle-xe:18.4.0-slim");
+    public static OracleContainer oracleContainer = new OracleContainer("gvenzl/oracle-xe:slim");
 
     @DynamicPropertySource
     public static void overrideProperties(DynamicPropertyRegistry registry) {
@@ -35,8 +37,12 @@ public class HelloWorldIntegrationTest {
     @Autowired
     MockMvc mockMvc;
 
+    @Autowired
+    HelloWorldRepository helloWorldRepository;
+
     @Test
     void returnsHelloWorld() throws Exception {
+        helloWorldRepository.save(new HelloWorldEntity(1L, "HELLO WORLD"));
         mockMvc.perform(MockMvcRequestBuilders.get("/hello-world"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("HELLO WORLD"));

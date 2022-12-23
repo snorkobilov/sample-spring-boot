@@ -1,14 +1,6 @@
 spring:
   datasource:
     url: jdbc:oracle:thin:@localhost:1521/ORCLPDB1
-    username: CSI_TEST
+    username: HELLO_LOCAL
     password: localPassword1
-#    type: com.zaxxer.hikari.HikariDataSource
-    hikari:
-      connection-init-sql: "ALTER SESSION SET CURRENT_SCHEMA=CSI_TEST"
-  jpa:
-    show-sql: false
-    properties:
-      hibernate:
-        enable_lazy_load_no_trans: true
-        format_sql: false
+    type: com.zaxxer.hikari.HikariDataSource
