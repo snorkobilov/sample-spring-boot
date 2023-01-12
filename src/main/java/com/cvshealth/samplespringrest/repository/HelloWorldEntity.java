@@ -1,8 +1,8 @@
 package com.cvshealth.samplespringrest.repository;
 
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity

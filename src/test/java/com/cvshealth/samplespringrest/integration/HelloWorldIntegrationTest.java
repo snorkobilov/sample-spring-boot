@@ -23,16 +23,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class HelloWorldIntegrationTest {
 
 
-    @Container
-    public static OracleContainer oracleContainer = new OracleContainer("gvenzl/oracle-xe:slim");
-
-    @DynamicPropertySource
-    public static void overrideProperties(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", oracleContainer::getJdbcUrl);
-        registry.add("spring.datasource.username", oracleContainer::getUsername);
-        registry.add("spring.datasource.password", oracleContainer::getPassword);
-        registry.add("spring.datasource.driver-class-name", oracleContainer::getDriverClassName);
-    }
+//    @Container
+//    public static OracleContainer oracleContainer = new OracleContainer("gvenzl/oracle-xe:slim");
+//
+//    @DynamicPropertySource
+//    public static void overrideProperties(DynamicPropertyRegistry registry) {
+//        registry.add("spring.datasource.url", oracleContainer::getJdbcUrl);
+//        registry.add("spring.datasource.username", oracleContainer::getUsername);
+//        registry.add("spring.datasource.password", oracleContainer::getPassword);
+//        registry.add("spring.datasource.driver-class-name", oracleContainer::getDriverClassName);
+//    }
 
     @Autowired
     MockMvc mockMvc;
