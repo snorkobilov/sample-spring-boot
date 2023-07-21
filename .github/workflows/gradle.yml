@@ -31,4 +31,11 @@ jobs:
     - name: Build with Gradle
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
-        arguments: assemble
+        arguments: test
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: success() || failure()    # run this step even if previous step failed
+      with:
+        name: Junit Tests            # Name of the check run which will be created
+        path: build/test-results/test/.*    # Path to test results
+        reporter: junit
