@@ -37,5 +37,5 @@ jobs:
       if: success() || failure()    # run this step even if previous step failed
       with:
         name: Junit Tests            # Name of the check run which will be created
-        path: build/test-results/test/.*    # Path to test results
+        path: build/test-results/test/TEST*.xml    # Path to test results
         reporter: junit
