@@ -20,9 +20,8 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    permissions: write-all
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -30,10 +29,9 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-      with:
-        arguments: test
+    - name: setup gradle
+      uses: gradle/gradle-build-action@v2
+    - uses: ./gradlew clean test
     - name: Test Report
       uses: dorny/test-reporter@v1
       if: success() || failure()    # run this step even if previous step failed
