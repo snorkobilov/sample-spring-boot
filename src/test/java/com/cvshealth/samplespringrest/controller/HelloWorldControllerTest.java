@@ -32,4 +32,9 @@ class HelloWorldControllerTest {
         String expectedWord = helloWorldController.helloWorld();
         assertEquals("HELLO WORLD", expectedWord);
     }
+
+    @Test
+    void helloWorldSecondTest() {
+
+    }
 }
